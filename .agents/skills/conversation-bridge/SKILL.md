@@ -29,9 +29,11 @@ Requires `tmux-bridge-mcp` (or manual tmux) so this agent can read another pane'
    [HH:MM] Claude: pulled webpage, pushed to Figma — file: <link>
    ```
 
-5. **Write `conversation.md`** at the repo root (or wherever the user's existing convention places it — check for an existing file first rather than assuming root).
+5. **Confirm the destination repo before writing anything.** Never assume the current working directory is the intended repo. Ask the user which repo (and path within it — root, or an existing `conversation.md` location if one already exists) unless they already named it in this same request.
 
-6. **Push.** Stage and commit `conversation.md` with a short commit message (e.g. `chore: sync conversation log`). Confirm with the user before pushing if this repo has uncommitted work already in progress that isn't part of this sync.
+6. **Write `conversation.md`** at the confirmed path.
+
+7. **Push.** Stage and commit `conversation.md` with a short commit message (e.g. `chore: sync conversation log`). Confirm with the user before pushing if this repo has uncommitted work already in progress that isn't part of this sync.
 
 ## Notes
 
