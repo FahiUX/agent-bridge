@@ -51,22 +51,28 @@ npx skills add FahiUX/agent-bridge
 
 ### 3. Updating When You Push New Rules
 ```bash
-npx skills update conversation-bridge -g
+npx skills update sync -g
 ```
 
 ---
 
 ## Alternative: Manual Git Clone
 ```bash
-git clone https://github.com/FahiUX/agent-bridge.git ~/.agents/skills/conversation-bridge
+git clone https://github.com/FahiUX/agent-bridge.git ~/.agents/skills/sync
 ```
 
 ---
 
 ## How to Use
 
-Ask your agent:
+Just say:
+> `/sync`
+
+Or naturally:
 > *"Peek Antigravity's pane and compile our conversations into one file."*
 
 Or after finishing a build in the other agent:
 > *"Go peek the active pane, then push a synced conversation.md."*
+
+With more than two agents running (e.g. two Antigravity + two Claude sessions), name the pane(s) explicitly so it's unambiguous which instance to pull from:
+> `/sync panes 1 and 3`
