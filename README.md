@@ -1,6 +1,7 @@
 # Agent Bridge 🌉
 
-> **Cross-agent tmux bridge + conversation sync for Claude Code & Antigravity (Gemini CLI).**
+> **Cross-agent bridge + conversation sync for Claude Code & Antigravity (Gemini CLI).**
+> Supports **tmux** (Mac / Linux) and **WezTerm** (Windows / Mac).
 > Stop juggling two separate `conversation.md` files — peek the other agent's pane, compile one merged log, push once.
 
 ---
@@ -10,7 +11,9 @@ Running Claude Code and Antigravity side by side means two separate sessions, tw
 
 ## The Solution
 This skill teaches an agent to:
-1. **Peek** another agent's tmux pane on request (via `tmux-bridge-mcp` or plain `tmux capture-pane`).
+1. **Peek** another agent's pane on request:
+   - In **tmux**: via `tmux capture-pane` or `tmux-bridge-mcp`.
+   - In **WezTerm**: via `wezterm cli get-text` (pure native Windows & Mac!).
 2. **Compile** both sessions into one chronological, speaker-labeled `conversation.md` — small talk summarized, decisions/files/links kept verbatim.
 3. **Push** a single, coherent log instead of two disconnected ones.
 
@@ -18,17 +21,19 @@ Nothing syncs automatically — this is a pull, triggered explicitly ("peek the 
 
 ---
 
-## Prerequisite: tmux + tmux-bridge-mcp
+## Prerequisites
 
-Run both agents in separate tmux panes of the same session:
+Run both agents in separate panes of the same multiplexer:
 
+### Option A: In tmux (Mac / Linux)
 ```bash
 tmux new-session -s agents
 # split pane, run `claude` in one, `agy` in the other
 ```
+Optional: https://github.com/howardpen9/tmux-bridge-mcp
 
-Install the bridge MCP server so an agent can read another pane's content programmatically:
-https://github.com/howardpen9/tmux-bridge-mcp
+### Option B: In WezTerm (Windows / Mac — No WSL needed!)
+Run agents in split panes. The skill uses `wezterm cli` natively to inspect and capture peer panes without requiring tmux or Linux.
 
 ---
 
