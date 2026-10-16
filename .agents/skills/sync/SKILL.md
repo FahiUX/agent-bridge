@@ -13,6 +13,8 @@ Works the same whether there are 2 panes or 6 — the only thing that scales wit
 
 ## Steps
 
+0. **Name conversation (if needed).** If this conversation still has a default or generic title, invoke `rename-convo` first so the compiled log and commit message are clearly labeled.
+
 1. **Identify every peer pane involved.** With only one other agent running, "the other pane" is unambiguous. With multiple instances of the same agent (e.g. two Antigravity sessions), pane numbers or names are required — don't guess which one the user means.
    - Enumerate candidates:
      - In tmux: `tmux list-panes -a` (or `tmux list-windows` if panes are split across named windows).
